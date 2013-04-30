@@ -3,13 +3,19 @@
 </head>
 
 <body>
-	{{> home}}
+	<div class="header">
+		<div class="logo">
+			<div class="gutter"></div>
+		</div>
+		<div class="about"></div>
+	</div>
+	<div class="main">
+		<div class="chart">{{> chart}}</div>
+		<div class="text"></div>
+	</div>
+	<div class="footer"></div>
 </body>
 
-<template name="home">
-	<h1>Welcome to TIPSbeta.com</h1>
-	<input type="button" value="Update" />
-	<br/>
-	<br/>
-	{{chart}}
+<template name="chart">
+{{rawdata}}
 </template>

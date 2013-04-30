@@ -20,7 +20,7 @@ if (Meteor.isClient) {
 
 	getData(betaSeries);
 
-	Template.home.chart = function() {
+	Template.chart.rawdata = function() {
 		var data = Session.get('betaSeries');
 		if (!data) return 'loading...';
 		console.log(data.notes[1]);
@@ -28,12 +28,6 @@ if (Meteor.isClient) {
 		console.log(data.sp500.length);
 		return data.notes;
 	};
-	Template.home.events({
- 		'click input' : function() {
-			// template data, if any, is available in 'this'
-			console.log('you clicked');
-		}
-	});
 }
 
 /* a fredCache object
