@@ -22,7 +22,7 @@ if (Meteor.isClient) {
 
 	Template.chart.rawdata = function() {
 		var data = Session.get('betaSeries');
-		if (!data) return 'loading...';
+		if (!data) return 'fetching current data...';
 		console.log(data.notes[1]);
 		console.log(data.tips.length);
 		console.log(data.sp500.length);
@@ -49,8 +49,9 @@ if (Meteor.isServer) {
 		var fredCache = {};
 		Meteor.methods({checkFred: function(seriesInfo) {
 			this.unblock();
+			var freshness = 7200000;
 			if (fredCache.hasOwnProperty(seriesInfo.name)) {
-				if (Date.now() - fredCache[seriesInfo.name].date < 3600000) {
+				if (Date.now() - fredCache[seriesInfo.name].date < freshness) {
 					return fredCache[seriesInfo.name].results;
 				}
 			}
