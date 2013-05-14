@@ -3,20 +3,6 @@ if (Meteor.isClient) {
 		Meteor.Router.to('/home');
 	});
 
-	Template.home.currpage = function() {
-		var loc = Meteor.Router.page();
-		if (loc === 'home') return 'home';
-	};
-
-	Template.chart.rawdata = function() {
-		var data = Session.get('betaSeries');
-		if (!data) return 'fetching current data...';
-		console.log(data.notes[1]);
-		console.log(data.tips.length);
-		console.log(data.sp500.length);
-		return data.notes;
-	};
-
 	var getData = function(seriesInfo) {
 		Meteor.call('checkFred', seriesInfo, function(error, result) {
 			error && console.log(error);
@@ -36,6 +22,21 @@ if (Meteor.isClient) {
 	};
 
 	getData(betaSeries);
+
+	Template.gutter.goto = function() {
+		var loc = Meteor.Router.page();
+		if (loc === 'home') return 'about';
+		return 'home';
+	};
+
+	Template.chart.rawdata = function() {
+		var data = Session.get('betaSeries');
+		if (!data) return 'fetching current data...';
+		console.log(data.notes[1]);
+		console.log(data.tips.length);
+		console.log(data.sp500.length);
+		return data.notes;
+	};
 
 }
 
