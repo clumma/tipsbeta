@@ -1,16 +1,16 @@
 <head>
-	<title>tipsβ.com - Home</title>
+	<title>tipsβ.com - {{currpage}}</title>
 </head>
 
 <body>
 	<div class="header">
 		<div class="logo">
 			<h1>tipsbeta.com</h1>
-			<div class="gutter">A new monetary policy target
-					<div class="about"><a href="">About</a></div>
+			<div class="gutter">
+				<div>A new monetary policy target</div>
+				<div class="navlink"><a href="">{{currpage}}</a></div>
 			</div>
 		</div>
 	</div>
   {{#isolate}} {{renderPage}} {{/isolate}}
 </body>
-

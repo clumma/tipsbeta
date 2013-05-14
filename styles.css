@@ -1,0 +1,42 @@
+/* CSS declarations go here */
+
+.header {
+	background-color: #958585;
+	color: white;
+	height: 95px;
+	border-bottom: 5px solid #3E6B85;
+}
+
+.logo h1 {
+	margin: auto;
+	padding: 10px 10px 0px 10px;
+	font-family: sans-serif;
+	font-style: italic;
+	font-size: 3em;
+}
+
+.gutter {
+	margin: auto;
+	padding: 0px 10px 10px 60px;
+	font-size: 1em;
+}
+
+.navlink {
+	float: right;
+	margin: auto;
+	padding: 0px 20px 10px 10px;
+	font-size: 1.1em;
+}
+
+a {
+	color: white;
+}
+
+a:active {
+	color: yellow;
+}
+
+.main {
+	background-color: #C5D2DB;
+}
+
