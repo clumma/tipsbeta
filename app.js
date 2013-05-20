@@ -29,36 +29,43 @@ if (Meteor.isClient) {
 		return 'home';
 	};
 
-	Template.chart.rawdata = function() {
-		var data = Session.get('betaSeries');
-		if (!data) return 'fetching current data...';
-		console.log(data.notes[1]);
-		// console.log(data.tips.length);
-		// console.log(data.sp500.length);
-		return data.notes;
+	var obj2arr = function(arr) {
+		var result = [];
+		for (i=0; i<arr.length; i++) {
+			if (arr[i].value !== '.') {
+				result.push([arr[i].date, parseFloat(arr[i].value)]);
+			}
+		}
+		return result;
 	};
 
-	var drawChart = function() {
+	Template.home.rendered = function() {
 		var data = Session.get('betaSeries');
-		console.log(data);
-		$('.container').highcharts('StockChart', {
-				rangeSelector : {
-					selected : 1
-				},
-				title : {
-					text : 'AAPL Stock Price'
-				},
-				series : [{
-					name : 'Notes',
-					data : data.notes,
-					tooltip: {
-						valueDecimals: 1
-					}
-				}]
-		});
+		if (data) {
+			// console.log(data.notes[1]);
+			// console.log(data.tips.length);
+			// console.log(data.sp500.length);
+			data = obj2arr(data.notes);
+			console.log(data);
+			$('.container').highcharts('StockChart', {
+					rangeSelector : {
+						selected : 1
+					},
+					title : {
+						text : '5-year Notes'
+					},
+					series : [{
+						name : 'Notes',
+						data : data,
+						tooltip: {
+							valueDecimals: 2
+						}
+					}]
+			});
+		} else {
+			$('.container').text('fetching current data...');
+		}
 	};
-
-	drawChart();
 
 }
 
