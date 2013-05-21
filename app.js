@@ -23,51 +23,51 @@ if (Meteor.isClient) {
 
 	getData(betaSeries);
 
-	Template.gutter.goto = function() {
-		var loc = Meteor.Router.page();
-		if (loc === 'home') return 'about';
-		return 'home';
+	// highstock options
+	var betaOpts = {
+		rangeSelector : {selected : 1},
+		title : {text : 'DGS5'},
+		series : [{
+			name : 'Notes',
+			// data : [[1041465600000, 2.2], [1041552000000, 3.1]],
+			tooltip: {valueDecimals: 2}
+		}]
 	};
 
 	var obj2arr = function(arr) {
 		var result = [];
 		for (i=0; i<arr.length; i++) {
 			if (arr[i].value !== '.') {
-				result.push([arr[i].date, parseFloat(arr[i].value)]);
+				result.push([Date.parse(arr[i].date), parseFloat(arr[i].value)]);
 			}
 		}
 		return result;
 	};
 
-	Template.home.rendered = function() {
-		var data = Session.get('betaSeries');
+	var drawChart = function(dataSeries, chartOpts) {
+		var data = Session.get(dataSeries);
 		if (data) {
-			// console.log(data.notes[1]);
-			// console.log(data.tips.length);
-			// console.log(data.sp500.length);
-			data = obj2arr(data.notes);
-			console.log(data);
-			$('.container').highcharts('StockChart', {
-					rangeSelector : {
-						selected : 1
-					},
-					title : {
-						text : '5-year Notes'
-					},
-					series : [{
-						name : 'Notes',
-						data : data,
-						tooltip: {
-							valueDecimals: 2
-						}
-					}]
-			});
+			chartOpts.series[0].data = obj2arr(data.notes);
+			$('.container').highcharts('StockChart', chartOpts);
 		} else {
 			$('.container').text('fetching current data...');
+			Meteor.setTimeout(function() {
+				drawChart(dataSeries, chartOpts)
+			}, 1000);
 		}
 	};
 
-}
+	Template.gutter.goto = function() {
+		var loc = Meteor.Router.page();
+		if (loc === 'home') return 'about';
+		return 'home';
+	};
+
+	Template.home.rendered = function() {
+		drawChart('betaSeries', _.clone(betaOpts));
+	};
+
+} // Meteor.isClient
 
 /* a fredCache object
 {
