@@ -26,7 +26,8 @@ if (Meteor.isClient) {
 	// highstock options
 	var betaOpts = {
 		rangeSelector : {selected : 1},
-		title : {text : 'DGS5'},
+		navigator : {enabled: false},
+		title : {text : ''},
 		series : [{
 			name : 'Notes',
 			// data : [[1041465600000, 2.2], [1041552000000, 3.1]],
