@@ -36,6 +36,18 @@ a:active {
 	color: yellow;
 }
 
+.text {
+	padding: 5px;
+}
+
+.text a {
+	color: crimson;
+}
+
+.text a:visited {
+	color: navy;
+}
+
 body {
 	background-color: #C5D2DB;
 }
