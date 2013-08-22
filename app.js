@@ -26,7 +26,7 @@ if (Meteor.isClient) {
 
 	var obj2arr = function(arr) {
 		var result = [];
-		for (i=0; i<arr.length; i++) {
+		for (i=0; i < arr.length; i++) {
 			if (arr[i].value !== '.') {
 				result.push([Date.parse(arr[i].date), parseFloat(arr[i].value)]);
 			}
