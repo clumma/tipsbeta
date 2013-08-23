@@ -11,30 +11,23 @@
 			<div class="container"></div>
 		</div>
 		<div class="text">
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-			Nunc bibendum fringilla rutrum. In hac habitasse platea dictumst.
-			Integer consectetur lectus non justo placerat rhoncus. Nunc quis sem lorem.
-			Etiam ipsum ipsum, consequat in euismod feugiat, consectetur id purus.
-			Ut suscipit orci sollicitudin enim consectetur ullamcorper.
-			Quisque justo nunc, elementum ac hendrerit id, suscipit at lorem.
-			Donec in urna eget erat fringilla venenatis. Nunc sed commodo ipsum.</p>
+			<p>The U.S. central bank controls inflation expectations, even at the ZLB. A controversial statement, perhaps, but one established by recent history. The real yield on 5-year treasuries is currently negative, so it is not clear how the ZLB concept makes sense. While it is not strictly necessary (and may not be possible) to understand the "transmission mechanism" in detail, various plausible mechanisms exist. For example, it is likely the Fed will hold and retire a significant portion of its QE purchases. Such purchapses represent unsterilized funds spent into the economy by the government – reserve balances at commerical banks notwithstanding.</p>
 
-			<p>Morbi molestie gravida volutpat. Curabitur ut nisi arcu, eu mattis enim.
-			In pharetra placerat urna nec pretium.
-			Ut sapien lorem, laoreet luctus tincidunt at, mattis sed leo.
-			Aenean eu justo dolor. Praesent varius lectus sed tortor pharetra placerat.
-			Ut pulvinar pulvinar nisl, eget pharetra nulla semper volutpat.
-			Donec volutpat justo nibh, nec pharetra tortor.
-			Vivamus et purus tellus, eu lacinia dolor.</p>
+			<p>But how much inflation should the Fed create? A growing number of economists favor a policy rule that can serve both to set market expectations and stabilize them. But which rule is best? Backward-looking rules respond too slowly to market conditions. An NGDP target seems ideal, since it would prevent <a href="http://econlog.econlib.org/archives/2012/09/debt_the_sticki.html">debt deflation</a>.</p>
 
-			<p>Curabitur porttitor sollicitudin massa id volutpat.
-			Cras auctor purus sit amet nulla vehicula adipiscing. Vivamus et tortor eros.
-			Suspendisse nec nulla vitae justo facilisis commodo.
-			Vestibulum eu eros tincidunt erat scelerisque ornare.
-			Cras scelerisque sagittis tincidunt.
-			Maecenas sem turpis, sodales ac vulputate vitae, commodo in nisl.
-			Cras malesuada tortor eu ligula dictum pellentesque.
-			Sed sit amet dolor sapien, et dignissim turpis. Donec quis dui elit.</p>
+			<p>But NGDP data are lagged and backward-looking. An NGDP futures market is the proposed antidote. Unfortunately, no such futures market exists. And there is still a free parameter: the NGDP path to target. Should it be 5%? Are you sure?</p>
+
+			<p>Fortunately, there are well-established markets that tell us what impact current Fed operations will have on the economy. The TIPS spread tells us the level of inflation expected. And the stock market can tell us how desirable it is.</p>
+
+			<p>Above, I plot the <a href="http://en.wikipedia.org/wiki/Beta_(finance)">beta</a> between the S&P500 index and the 5-year TIPS spread. The monetary policy rule is simple: target the TIPS spread beta (TIPS beta for short) at zero. Like NGDP targeting, this also prevents debt deflation, but only to the extent the market believes it's a threat. It has no free parameters, and unlike the inflation rate itself, no sharp discontinuity at zero. After all, why target 2% inflation? Only as a buffer above a deflationary sprial.</p>
+
+			<p>Another benefit of the rule is that it is non-presciptive. The FOMC are free to <a href="http://en.wikipedia.org/wiki/Haruspicy">deliberate</a> and use the policy tools they feel best meet economic conditions. The TIPS beta simply gives them what they currently lack: a good way to measure how they're doing.</a>
+
+			<p>With that in mind, we can look back and answer such burning questions as: "Was monetary policy too loose in 2003?" The answer is yes.</p>
+
+			<p>FAQ:<br />
+			Q: Why not use <a href="http://www.clevelandfed.org/research/data/inflation_expectations/">inflation estimates</a> from the Cleveland Fed? They claim it's more accurate than the TIPS spread.<br />
+			A: Maybe, but it's also released only once a month. And the <a href="http://www.clevelandfed.org/research/data/inflation_expectations/2013/August/image1.gif">insurance premium</a> they extract is so small it can be ignored.</p>
 		</div>
 	</div>
 	{{createChart}}
